@@ -4,8 +4,6 @@ MAINTAINER "Christoph Fabianek" christoph@ownyourdata.eu
 RUN set -ex; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
-		libv8-3.14-dev \
-		libsodium-dev \
 		autoconf \
 		automake \
 		bzip2 \
@@ -110,6 +108,7 @@ RUN set -ex \
 	&& make -j "$(nproc)" \
 	&& make install \
 	\
+	&& apt-get update \
 	&& apt-get purge -y --auto-remove $buildDeps \
 	&& cd / \
 	&& rm -r /usr/src/ruby \
@@ -129,7 +128,17 @@ ENV PATH $BUNDLE_BIN:$PATH
 RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
-RUN cd /srv/shiny-server \
+RUN apt-get -y update \
+		&& apt-get install -y --no-install-recommends \
+			libv8-3.14-dev \
+			libsodium-dev \
+			build-essential \
+			gcc \
+			g++ \
+			automake \
+			autoconf \
+		&& rm -rf /var/lib/apt/lists/* \
+		&& cd /srv/shiny-server \
         && rm -rf * \
         && git clone https://github.com/OwnYourData/app-report.git \ 
         && mv app-report/* . \
