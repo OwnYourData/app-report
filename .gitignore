@@ -34,3 +34,4 @@ vignettes/*.pdf
 
 # other
 sample/
+.Rproj.user
