@@ -32,7 +32,6 @@ observeEvent(input$createReport, {
         app_key <- session$userData$appKey
         app_secret <- session$userData$appSecret
         private_key <- as.character(session$userData$keyItems)[3]
-
         taskStr = paste0(
                 "docker run -i --rm ",
                 "--env-file <(env | grep MAIL) ",
