@@ -133,6 +133,7 @@ RUN apt-get -y update \
 			libv8-3.14-dev \
 			libsodium-dev \
 			build-essential \
+			gcc \
 		&& rm -rf /var/lib/apt/lists/* \
 		&& cd /srv/shiny-server \
         && rm -rf * \
