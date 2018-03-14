@@ -12,7 +12,7 @@ server <- function(input, output, session) {
         callModule(srvModule, 'oyd', tr, notif, appStart)
 }
 
-shinyApp(ui = uiBlank('oyd'), server = server)
+shinyApp(ui = uiSimple('oyd'), server = server)
 
 # first start
 # library(shiny); install.packages('~/oyd/base/oydapp/', repos=NULL, type='source'); library(oydapp); runApp('~/oyd/views/app-report', host='0.0.0.0', port=1252)
