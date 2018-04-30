@@ -56,7 +56,7 @@ observeEvent(input$createReport, {
                 app <- oydapp::setupApp(pia_url, app_key, app_secret, '')
                 oydapp::createTask(
                         app,
-                        'oyd.report.temp', # identifier
+                        'oyd.report.tmp', # identifier
                         taskStr,           # command
                         'delete'           # schedule
                 )
