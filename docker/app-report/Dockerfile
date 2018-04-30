@@ -107,11 +107,11 @@ RUN set -ex \
 		--enable-shared \
 	&& make -j "$(nproc)" \
 	&& make install \
-	\
-	&& apt-get update \
-	&& apt-get purge -y --auto-remove $buildDeps \
-	&& cd / \
-	&& rm -r /usr/src/ruby \
+#	\
+#	&& apt-get update \
+#	&& apt-get purge -y --auto-remove --no-install-recommends $buildDeps \
+#	&& cd / \
+#	&& rm -r /usr/src/ruby \
 	\
 	&& gem update --system "$RUBYGEMS_VERSION" \
 	&& gem install bundler --version "$BUNDLER_VERSION" --force \
@@ -129,11 +129,16 @@ RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
 RUN apt-get -y update \
-		&& apt-get install -y --no-install-recommends \
+		&& DEBIAN_FRONTEND=noninteractive apt-get install -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' -y --no-install-recommends \
 			libv8-3.14-dev \
 			libsodium-dev \
 			build-essential \
 			gcc \
+			r-cran-raster \
+			libgeos-dev \
+			libgdal-dev \
+			gfortran \
+			libudunits2-dev \
 		&& rm -rf /var/lib/apt/lists/* \
 		&& cd /srv/shiny-server \
         && rm -rf * \
