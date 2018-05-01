@@ -139,13 +139,15 @@ RUN apt-get -y update \
 			libgdal-dev \
 			gfortran \
 			libudunits2-dev \
-		&& rm -rf /var/lib/apt/lists/* \
-		&& cd /srv/shiny-server \
+		&& rm -rf /var/lib/apt/lists/*
+
+RUN cd /srv/shiny-server \
         && rm -rf * \
         && git clone https://github.com/OwnYourData/app-report.git \ 
         && mv app-report/* . \
         && rm -r app-report \
-        && R -e "source('init.R')"
+        && R -e "source('init.R')" \
+        && printf "OYD_SECRET=$OYD_SECRET\n" > /srv/shiny-server/.Renviron
 
 EXPOSE 3838
 
