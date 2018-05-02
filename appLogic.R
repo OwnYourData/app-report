@@ -31,7 +31,7 @@ observeEvent(input$createReport, {
         pia_url <- session$userData$piaUrl
         app_key <- session$userData$appKey
         app_secret <- session$userData$appSecret
-        private_key <- as.character(session$userData$keyItems)[3]
+        private_key <- as.character(session$userData$keyItems$key)
         if(as.character(private_key) != '' && !is.na(private_key)){
                 shinyWidgets::sendSweetAlert(
                         session = session,
