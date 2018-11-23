@@ -18,6 +18,7 @@ source('uiBody.R')
 appName <- 'report'
 appTitle <- 'Report'
 app_id <- 'oyd.report'
+plugin_identifier <- 'oyd.base'
 appRepoDefault <- 'oyd.settings'
 helpUrl <- 'https://www.ownyourdata.eu/apps/report'
 

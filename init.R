@@ -12,6 +12,7 @@ my_packages = c('shiny',
                 'lubridate',
                 'stringi',
                 'digest',
+		'ggplot2',
                 'rintrojs',
                 'shinyAce',
                 'shinyWidgets')

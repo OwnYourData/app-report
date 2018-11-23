@@ -146,7 +146,7 @@ RUN cd /srv/shiny-server \
         && git clone https://github.com/OwnYourData/app-report.git \ 
         && mv app-report/* . \
         && rm -r app-report \
-        && R -e "source('init.R')" \
+        && R  -e "source('init.R')" \
         && sed -i '2s/.*/printf \"OYD_SECRET=$OYD_SECRET\\n\" > \/srv\/shiny-server\/.Renviron/' /usr/bin/shiny-server.sh
 
 EXPOSE 3838
