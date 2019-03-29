@@ -1,5 +1,5 @@
 # <img src="https://github.com/OwnYourData/app-report/raw/master/assets/service.png" width="92"> Datenzusammenfassung    
-Diese ermöglicht dir den Versand deiner wöchentlichen Datenzusammenfassung. Da die Daten in deinem Datentresor verschlüsselt sind. Wirst du aufgefordert, dein Passwort zum Entschlüsseln einzugeben - du hast aber die Möglichkeit, dein Passwort (auch verschlüsselt) im Browsercache abzulegen.
+Dieses Plugin ermöglicht dir den Versand deiner wöchentlichen Datenzusammenfassung. Da die Daten in deinem Datentresor verschlüsselt sind. Wirst du aufgefordert, dein Passwort zum Entschlüsseln einzugeben - du hast aber die Möglichkeit, dein Passwort (auch verschlüsselt) im Browsercache abzulegen.
 
 Docker Image: https://hub.docker.com/r/oydeu/app-report/    
 
