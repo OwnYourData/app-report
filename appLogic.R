@@ -43,7 +43,7 @@ observeEvent(input$createReport, {
                         "docker run -i --rm ",
                         "--env-file <(env | grep MAIL) ",
                         "--env-file <(env | grep QUEUE) ",
-                        "--link $DOCKER_LINK_MQ ",
+                        "-e QUEUE_HOST=$(getent hosts $QUEUE_HOST | awk '{ print $1 }') ",
                         "oydeu/srv-report /bin/run.sh '{",
                         '"pia_url":"', pia_url, '",',
                         '"app_key":"', app_key, '",',
