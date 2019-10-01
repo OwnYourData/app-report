@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-report-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-report
+  template:
+    metadata:
+      labels:
+        app: app-report
+    spec:
+      containers:
+      - name: app-report
+        image: oydeu/app-report:latest
+        ports:
+        - containerPort: 3838
+        env:
+          - name: OYD_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: app-report-secrets
+                key: oyd-secret
